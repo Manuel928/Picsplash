@@ -22,15 +22,23 @@ const searchImages = async () => {
     results.map((result) => {
         const imageWrapper = document.createElement('div');
         imageWrapper.classList.add('searchResult')
+
+        // This 'a' tag wraps the image itself inside a link so it can also be clickable and it redirects to the appropiate url
+        const a = document.createElement('a')
         const img = document.createElement('img');
         img.src = result.urls.small
         img.alt = result.alt_description
+        a.href = result.links.html;
+        a.target = "_blank"
+        a.appendChild(img)
+
+        // This is the second 'a' tag that contains the link of the image. It works the same as clicking on the image itself
         const imgLink = document.createElement('a');
         imgLink.href = result.links.html;
         imgLink.target = "_blank"
         imgLink.textContent = result.alt_description;
 
-        imageWrapper.appendChild(img);
+        imageWrapper.appendChild(a)
         imageWrapper.appendChild(imgLink);
         searchResults.appendChild(imageWrapper);
 
