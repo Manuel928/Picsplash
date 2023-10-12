@@ -25,6 +25,10 @@ h1 {
     object-fit: contain;
     padding-bottom: 25px;
 }
+.titleAndIcon a {
+    text-decoration: none;
+    color: #333;
+}
 form {
     display: flex;
     justify-content: center;
